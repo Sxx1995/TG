@@ -44,16 +44,16 @@ provider:
       # 生成图片的背景图存放路径
       dir: assets/img/MUCH-VS-MANY-14.jpg
       # 选取磁盘上的背景图作为背景图的概率
-      probability: 0.8
+      probability: 1.0
     # 自动生成
     - type: from_generate
       # 选取自动生成背景图作为背景图的概率
-      probability: 0.2
+      probability: 0.0
       width_range: (1000, 1500)
       height_range: (1000, 1500)
 
   bbox:
-    - How much money have you got?: [[17.0, 751.0], [644.0, 755.0], [644.0, 797.0], [17.0, 794.0]]
+    - How much money have you got?: [[17.0, 741.0], [644.0, 745.0], [644.0, 807.0], [17.0, 804.0]]
 
   # 文字贴图配置
   text_img:
@@ -74,7 +74,7 @@ provider:
       - (0,0,0,255)
       - (255,0,0,255)
     # 文本框的宽度
-    char_border_width: 0
+    char_border_width: -1
     # 文本框的颜色
     char_border_color: (255,255,0,255)
     # 自动padding到指定的 长边/短边 的比例

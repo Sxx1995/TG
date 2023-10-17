@@ -47,9 +47,9 @@ def init():
     return init_config()
 
 
-def run(bbox):
+def run(text, bbox):
   from service.base import gen_all_pic
-  gen_all_pic(bbox)
+  gen_all_pic(text, bbox)
 
 
 
@@ -62,7 +62,7 @@ def start():
     #p = Pool(process_count)
     #for i in range(process_count):
     #    p.apply_async(run, ([x.values() for x in text2add], ))
-    run([x.values() for x in text2add])
+    run([list(x.keys())[0]for x in text2add], [x[list(x.keys())[0]] for x in text2add])
     print('Waiting for all subprocesses done...')
     p.close()
     p.join()

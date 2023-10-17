@@ -9,12 +9,18 @@ class LayoutProvider:
         self.rotate_angle_range = eval(rotate_angle_range) if type(rotate_angle_range) is str else rotate_angle_range
         self.strategy_list = strategy_list
 
-    def gen_next_layout(self, bbox):
+    def gen_next_layout(self, text, bbox):
         from service import background_img_provider
         bg_img = background_img_provider.gen.__next__()
-        group_box_list = gen_group_box_list(bg_img)
+        b = np.array(list(bbox))
+        bmax = b.max(1)
+        bmin = b.min(1)
+        b = np.concatenate([bmin, bmax], axis = 1).astype('int64')
+        group_box_list = b.tolist()
+        #print(b.shape)
+        #group_box_list = gen_group_box_list(bg_img)
 
-        layout = layout_factory(
+        layout = layout_factory(text,
             bg_img=bg_img,
             group_box_list=group_box_list,
             out_put_dir=self.out_put_dir,
@@ -25,7 +31,7 @@ class LayoutProvider:
         return layout
 
 
-def layout_factory(bg_img: Image.Image,
+def layout_factory(text, bg_img: Image.Image,
                    group_box_list: list,
                    out_put_dir,
                    rotate_angle_range,
@@ -41,7 +47,7 @@ def layout_factory(bg_img: Image.Image,
     :return:
     """
     from service import text_img_provider
-    layout = Layout(bg_img=bg_img,
+    layout = Layout(text, bg_img=bg_img,
                     out_put_dir=out_put_dir,
                     group_box_list=group_box_list,
                     next_block_generator=text_img_provider,

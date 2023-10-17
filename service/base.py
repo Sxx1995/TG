@@ -37,7 +37,7 @@ def get_lsvt_data_dir(out_put_dir):
     return lsvt_data
 
 
-def gen_all_pic(bbox):
+def gen_all_pic(text, bbox):
     """
     生成全部图片
     :return:
@@ -49,23 +49,22 @@ def gen_all_pic(bbox):
     while index < gen_count:
         log.info("-" * 20 + " generate new picture {index}/{gen_count}".format(index=index,
                                                                                gen_count=gen_count) + "-" * 20)
-        dump_data = gen_pic(bbox)
+        dump_data = gen_pic(text, bbox)
         # 写入label
         if dump_data:
             add_label_data(dump_data)
+            index = index + 1
             # 生成voc
             if conf['base']['gen_voc']:
                 gen_voc(dump_data)
-                index += 1
 
             if conf['base']['gen_lsvt']:
                 gen_lsvt(dump_data)
-                index += 1
 
 
-def gen_pic(bbox):
+def gen_pic(text, bbox):
     from service import layout_provider
-    layout = layout_provider.gen_next_layout(bbox)
+    layout = layout_provider.gen_next_layout(text, bbox)
 
     if not layout.is_empty():
         dump_data = layout.dump()

@@ -160,13 +160,11 @@ class TextImgProvider(NextBlockGenerator):
 
             return (r, g, b, 255)
 
-    def auto_gen_next_img(self, width, height, strategy, bg_img, block_list):
+    def auto_gen_next_img(self, text, width, height, strategy, bg_img, block_list):
         """
         自动生成下一个文本贴图
         :return:
         """
-        from service import text_provider
-        text = "".join(text_provider.gen.__next__())
         fp = self.next_font_path()
 
         if isinstance(strategy, HorizontalStrategy):
@@ -211,8 +209,8 @@ class TextImgProvider(NextBlockGenerator):
                                          auto_padding_to_ratio=self.auto_padding_to_ratio)
             return text_img
 
-    def auto_gen_next_img_block(self, width, height, strategy, bg_img, block_list, rotate_angle):
-        next_img = self.auto_gen_next_img(width=width,
+    def auto_gen_next_img_block(self, text, width, height, strategy, bg_img, block_list, rotate_angle):
+        next_img = self.auto_gen_next_img(text=text, width=width,
                                           height=height,
                                           strategy=strategy,
                                           bg_img=bg_img,

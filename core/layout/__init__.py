@@ -134,7 +134,7 @@ class NextBlockGenerator:
 
 
 class BlockGroup:
-    def __init__(self, bg_img: Image.Image, group_box,
+    def __init__(self, text, bg_img: Image.Image, group_box,
                  rotate_angle_range,
                  next_block_generator=None,
                  strategy_list=[]):
@@ -149,6 +149,7 @@ class BlockGroup:
         self.strategy_list = strategy_list
 
         self.next_block_generator = next_block_generator
+        self.text = text
 
     def auto_append_block(self):
         """
@@ -185,7 +186,7 @@ class BlockGroup:
 
         rotate_angle = Random.random_int(self.rotate_angle_range[0], self.rotate_angle_range[1])
 
-        block = self.next_block_generator.auto_gen_next_img_block(width=self.width,
+        block = self.next_block_generator.auto_gen_next_img_block(text=self.text, width=self.width,
                                                                   height=self.height,
                                                                   strategy=strategy,
                                                                   bg_img=self.bg_img,
@@ -249,7 +250,7 @@ class BlockGroup:
 
 
 class Layout:
-    def __init__(self,
+    def __init__(self,   text,
                  bg_img: Image.Image,
                  out_put_dir: str,
                  rotate_angle_range,
@@ -262,8 +263,9 @@ class Layout:
         self.next_block_generator = next_block_generator
 
         self.block_group_list = []
-        for group_box in self.group_box_list:
-            block_group = BlockGroup(bg_img, group_box, rotate_angle_range, self.next_block_generator, strategy_list)
+        for idx, group_box in enumerate(self.group_box_list):
+            print('!!!!!!!!!!!!!!!!!!!!',text[idx])
+            block_group = BlockGroup(text[idx], bg_img, group_box, rotate_angle_range, self.next_block_generator, strategy_list)
             self.block_group_list.append(block_group)
 
     def get_all_block_list(self):

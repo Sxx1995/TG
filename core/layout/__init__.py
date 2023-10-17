@@ -13,7 +13,7 @@ import cv2
 import math
 import numpy as np
 from copy import deepcopy
-
+from time import sleep
 
 class Block:
     def __init__(self, img: Image.Image, inner_x=0, inner_y=0, margin=0, rotate_angle=0):
@@ -162,7 +162,10 @@ class BlockGroup:
         retry_times = 5
         while retry_times > 0:
             block = self._gen_block(strategy)
+            print(strategy, self.block_list, block.locate_by_outter)
+            #sleep(5)
             r = False
+
             if block:
                 r = strategy.logic(self, block)
                 if r:
@@ -265,6 +268,7 @@ class Layout:
         self.block_group_list = []
         for idx, group_box in enumerate(self.group_box_list):
             print('!!!!!!!!!!!!!!!!!!!!',text[idx])
+            print('!!!!!!!!!!!!!!!!!!!!!!!',group_box)
             block_group = BlockGroup(text[idx], bg_img, group_box, rotate_angle_range, self.next_block_generator, strategy_list)
             self.block_group_list.append(block_group)
 

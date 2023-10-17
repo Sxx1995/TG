@@ -35,4 +35,6 @@ class HorizontalFlowStrategy(Strategy):
             next_block.locate_by_outter(next_x, next_y)
             if self.check_is_out(block_group=block_group, block=next_block):
                 return False
+        print(next_x, next_y, block_group.group_box, next_block.outer_box)
+        #print(zzzzzzzzzzzzz)
         return True

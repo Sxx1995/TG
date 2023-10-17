@@ -89,15 +89,13 @@ provider:
     # 各种布局模式以及其选取的概率
     strategy_list:
       - name: HorizontalStrategy
-        probability: 0.2
+        probability: 0.0
       - name: VerticalStrategy
-        probability: 0.2
+        probability: 0.0
       - name: HorizontalFlowStrategy
-        probability: 0.2
+        probability: 0.8
       - name: VerticalFlowStrategy
-        probability: 0.2
-      - name: RandomPasteStrategy
-        probability: 0.1
+        probability: 0.0
       - name: CustomizationStrategy1
-        probability: 0.1
+        probability: 0.0
 

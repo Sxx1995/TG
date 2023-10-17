@@ -1,5 +1,5 @@
 from core.layout.strategy import Strategy
-
+from time import sleep
 
 class VerticalStrategy(Strategy):
     """
@@ -11,7 +11,6 @@ class VerticalStrategy(Strategy):
         init_y = block_group.group_box[1]
         next_x = init_x
         next_y = init_y
-
         for block in block_group.block_list:
             b = block.outer_box[3]
             if b > next_y:

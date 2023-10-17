@@ -1,6 +1,6 @@
 <annotation>
   <folder>JPEGImages</folder>
-  <filename>pic_2ef151fefe97cb5131c6e8d29b7ba890820c3f5d.png</filename>
+  <filename>pic_c2cc2a6c0a0ebe3d2af8192d962a1894f5fb5ae1.png</filename>
   <source>
     <database>The VOC2007 Database</database>
     <annotation>PASCAL VOC2007</annotation>
@@ -19,8 +19,8 @@
     <bndbox>
       <xmin>27</xmin>
       <ymin>761</ymin>
-      <xmax>253</xmax>
-      <ymax>783</ymax>
+      <xmax>247</xmax>
+      <ymax>787</ymax>
     </bndbox>
   </object>
 </annotation>

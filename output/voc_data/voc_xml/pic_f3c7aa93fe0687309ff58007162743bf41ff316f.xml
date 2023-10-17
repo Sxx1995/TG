@@ -1,0 +1,26 @@
+<annotation>
+  <folder>JPEGImages</folder>
+  <filename>pic_f3c7aa93fe0687309ff58007162743bf41ff316f.png</filename>
+  <source>
+    <database>The VOC2007 Database</database>
+    <annotation>PASCAL VOC2007</annotation>
+    <image>flickr</image>
+  </source>
+  <size>
+    <width>1500</width>
+    <height>1400</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>h_text</name>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>17</xmin>
+      <ymin>741</ymin>
+      <xmax>404</xmax>
+      <ymax>780</ymax>
+    </bndbox>
+  </object>
+</annotation>

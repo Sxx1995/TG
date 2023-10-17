@@ -216,7 +216,7 @@ class TextImgProvider(NextBlockGenerator):
                                           bg_img=bg_img,
                                           block_list=block_list)
         if next_img:
-            return TextBlock(text_img=next_img, margin=10, rotate_angle=rotate_angle)
+            return TextBlock(text_img=next_img, margin=0, rotate_angle=rotate_angle)
 
 
 if __name__ == '__main__':

@@ -25,5 +25,3 @@ class Const:
 
 
 const = Const()
-
-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
